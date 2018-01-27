@@ -5,7 +5,7 @@
 # Information:
 
 - Designed for 10.10+
-- typeStatus is a mySIMBL plugin that adds iMessage typing and read receipt indicators to the status bar on macOS 10.10+
+- typeStatus is a mySIMBL plugin that adds iMessage typing and read receipt indicators to the status bar
 - Author: [w0lfschild](https://github.com/w0lfschild)
 
 # Note:
