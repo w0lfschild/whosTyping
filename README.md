@@ -5,7 +5,7 @@
 # Information:
 
 - Designed for 10.10+
-- typeStatus is a mySIMBL plugin that brings dark mode to Notification Center on macOS
+- typeStatus is a mySIMBL plugin that adds iMessage typing and read receipt indicators to the status bar on macOS 10.10+
 - Author: [w0lfschild](https://github.com/w0lfschild)
 
 # Note:
@@ -15,7 +15,7 @@
 # Installation:
 
 1. Download [mySIMBL](https://github.com/w0lfschild/app_updates/raw/master/mySIMBL/mySIMBL_master.zip)
-2. Download [darkNC](https://github.com/w0lfschild/darkNC/raw/master/build/typeStatus13.bundle.zip)
+2. Download [typeStatus](https://github.com/w0lfschild/darkNC/raw/master/build/typeStatus13.bundle.zip)
 3. Unzip downloads
 4. Open `typeStatus13.bundle` with `mySIMBL.app`
 5. Open `Terminal.app` and run the command `killall Messages`
