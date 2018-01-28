@@ -212,6 +212,23 @@ ZKSwizzleInterface(WBTS_IMTypingChatItem, IMTypingChatItem, NSObject)
 
 @end
 
+ZKSwizzleInterface(WBTS_FZMessage, FZMessage, NSObject)
+@implementation WBTS_FZMessage
+
+- (void)setTimeRead:(NSDate *)timeRead {
+    ZKOrig(void, timeRead);
+    
+//    if (!self.sender && [[NSDate date] timeIntervalSinceDate:self.timeRead] < 1) {
+//        HBTSSetStatus(HBTSStatusBarTypeRead, self.handle);
+//
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)([userDefaults doubleForKey:kHBTSPreferencesDurationKey] * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//            HBTSSetStatus(HBTSStatusBarTypeEmpty, nil);
+//        });
+//    }
+}
+
+@end
+
 ZKSwizzleInterface(WBTS_IMMessage, IMMessage, NSObject)
 @implementation WBTS_IMMessage
 

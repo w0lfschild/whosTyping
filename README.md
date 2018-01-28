@@ -15,7 +15,7 @@
 # Installation:
 
 1. Download [mySIMBL](https://github.com/w0lfschild/app_updates/raw/master/mySIMBL/mySIMBL_master.zip)
-2. Download [typeStatus](https://github.com/w0lfschild/darkNC/raw/master/build/typeStatus13.bundle.zip)
+2. Download [typeStatus](https://github.com/w0lfschild/typeStatus/raw/master/build/typeStatus13.bundle.zip)
 3. Unzip downloads
 4. Open `typeStatus13.bundle` with `mySIMBL.app`
 5. Open `Terminal.app` and run the command `killall Messages`
