@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FBCE4EBA201C0F4D002F8A61"
-               BuildableName = "typeStatus13.bundle"
-               BlueprintName = "typeStatus13"
-               ReferencedContainer = "container:typeStatus13.xcodeproj">
+               BuildableName = "whosTyping.bundle"
+               BlueprintName = "whosTyping"
+               ReferencedContainer = "container:whosTyping.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -48,9 +48,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FBCE4EBA201C0F4D002F8A61"
-            BuildableName = "typeStatus13.bundle"
-            BlueprintName = "typeStatus13"
-            ReferencedContainer = "container:typeStatus13.xcodeproj">
+            BuildableName = "whosTyping.bundle"
+            BlueprintName = "whosTyping"
+            ReferencedContainer = "container:whosTyping.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FBCE4EBA201C0F4D002F8A61"
-            BuildableName = "typeStatus13.bundle"
-            BlueprintName = "typeStatus13"
-            ReferencedContainer = "container:typeStatus13.xcodeproj">
+            BuildableName = "whosTyping.bundle"
+            BlueprintName = "whosTyping"
+            ReferencedContainer = "container:whosTyping.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

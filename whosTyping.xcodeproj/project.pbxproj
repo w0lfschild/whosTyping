@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		FBCE4EBF201C0F4D002F8A61 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBCE4EBE201C0F4D002F8A61 /* AppKit.framework */; };
 		FBCE4EC1201C0F4D002F8A61 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBCE4EC0201C0F4D002F8A61 /* Foundation.framework */; };
-		FBCE4EC8201C0F4D002F8A61 /* typeStatus13.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCE4EC7201C0F4D002F8A61 /* typeStatus13.m */; };
+		FBCE4EC8201C0F4D002F8A61 /* whosTyping.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCE4EC7201C0F4D002F8A61 /* whosTyping.m */; };
 		FBCE4ECC201C0F4D002F8A61 /* ZKSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCE4ECB201C0F4D002F8A61 /* ZKSwizzle.m */; };
 		FBCE4ECE201C0F4D002F8A61 /* PrefixHeader.pch in Resources */ = {isa = PBXBuildFile; fileRef = FBCE4ECD201C0F4D002F8A61 /* PrefixHeader.pch */; };
 		FBCE4ED5201C0F91002F8A61 /* IMCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBCE4ED4201C0F91002F8A61 /* IMCore.framework */; };
@@ -21,11 +21,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FBCE4EBB201C0F4D002F8A61 /* typeStatus13.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = typeStatus13.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBCE4EBB201C0F4D002F8A61 /* whosTyping.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = whosTyping.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBCE4EBE201C0F4D002F8A61 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		FBCE4EC0201C0F4D002F8A61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		FBCE4EC4201C0F4D002F8A61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FBCE4EC7201C0F4D002F8A61 /* typeStatus13.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = typeStatus13.m; sourceTree = "<group>"; };
+		FBCE4EC7201C0F4D002F8A61 /* whosTyping.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = whosTyping.m; sourceTree = "<group>"; };
 		FBCE4ECA201C0F4D002F8A61 /* ZKSwizzle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ZKSwizzle.h; path = ZKSwizzle/ZKSwizzle.h; sourceTree = "<group>"; };
 		FBCE4ECB201C0F4D002F8A61 /* ZKSwizzle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ZKSwizzle.m; path = ZKSwizzle/ZKSwizzle.m; sourceTree = "<group>"; };
 		FBCE4ECD201C0F4D002F8A61 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -59,7 +59,7 @@
 		FBCE4EB2201C0F4D002F8A61 = {
 			isa = PBXGroup;
 			children = (
-				FBCE4EC2201C0F4D002F8A61 /* typeStatus13 */,
+				FBCE4EC2201C0F4D002F8A61 /* whosTyping */,
 				FBCE4EBD201C0F4D002F8A61 /* Frameworks */,
 				FBCE4EBC201C0F4D002F8A61 /* Products */,
 			);
@@ -68,7 +68,7 @@
 		FBCE4EBC201C0F4D002F8A61 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FBCE4EBB201C0F4D002F8A61 /* typeStatus13.bundle */,
+				FBCE4EBB201C0F4D002F8A61 /* whosTyping.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,16 +83,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		FBCE4EC2201C0F4D002F8A61 /* typeStatus13 */ = {
+		FBCE4EC2201C0F4D002F8A61 /* whosTyping */ = {
 			isa = PBXGroup;
 			children = (
 				FBCE4EE6201C2680002F8A61 /* Images */,
 				FBCE4EDB201C264F002F8A61 /* IMCore */,
 				FBCE4EC9201C0F4D002F8A61 /* ZKSwizzle */,
 				FBCE4EC3201C0F4D002F8A61 /* Supporting Files */,
-				FBCE4EC7201C0F4D002F8A61 /* typeStatus13.m */,
+				FBCE4EC7201C0F4D002F8A61 /* whosTyping.m */,
 			);
-			path = typeStatus13;
+			path = whosTyping;
 			sourceTree = "<group>";
 		};
 		FBCE4EC3201C0F4D002F8A61 /* Supporting Files */ = {
@@ -140,9 +140,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FBCE4EBA201C0F4D002F8A61 /* typeStatus13 */ = {
+		FBCE4EBA201C0F4D002F8A61 /* whosTyping */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FBCE4ED1201C0F4D002F8A61 /* Build configuration list for PBXNativeTarget "typeStatus13" */;
+			buildConfigurationList = FBCE4ED1201C0F4D002F8A61 /* Build configuration list for PBXNativeTarget "whosTyping" */;
 			buildPhases = (
 				FBCE4EB7201C0F4D002F8A61 /* Sources */,
 				FBCE4EB8201C0F4D002F8A61 /* Frameworks */,
@@ -153,9 +153,9 @@
 			);
 			dependencies = (
 			);
-			name = typeStatus13;
+			name = whosTyping;
 			productName = typeStatus13;
-			productReference = FBCE4EBB201C0F4D002F8A61 /* typeStatus13.bundle */;
+			productReference = FBCE4EBB201C0F4D002F8A61 /* whosTyping.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -173,7 +173,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FBCE4EB6201C0F4D002F8A61 /* Build configuration list for PBXProject "typeStatus13" */;
+			buildConfigurationList = FBCE4EB6201C0F4D002F8A61 /* Build configuration list for PBXProject "whosTyping" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -185,7 +185,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FBCE4EBA201C0F4D002F8A61 /* typeStatus13 */,
+				FBCE4EBA201C0F4D002F8A61 /* whosTyping */,
 			);
 		};
 /* End PBXProject section */
@@ -227,7 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBCE4EC8201C0F4D002F8A61 /* typeStatus13.m in Sources */,
+				FBCE4EC8201C0F4D002F8A61 /* whosTyping.m in Sources */,
 				FBCE4ECC201C0F4D002F8A61 /* ZKSwizzle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,10 +348,10 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = typeStatus13/PrefixHeader.pch;
-				INFOPLIST_FILE = typeStatus13/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/whosTyping/Info.plist";
 				INSTALL_PATH = "/Library/Application Support/SIMBL/Plugins";
 				MACH_O_TYPE = mh_dylib;
-				PRODUCT_BUNDLE_IDENTIFIER = org.w0lf.typeStatus13;
+				PRODUCT_BUNDLE_IDENTIFIER = org.w0lf.whosTyping;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -373,10 +373,10 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = typeStatus13/PrefixHeader.pch;
-				INFOPLIST_FILE = typeStatus13/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/whosTyping/Info.plist";
 				INSTALL_PATH = "/Library/Application Support/SIMBL/Plugins";
 				MACH_O_TYPE = mh_dylib;
-				PRODUCT_BUNDLE_IDENTIFIER = org.w0lf.typeStatus13;
+				PRODUCT_BUNDLE_IDENTIFIER = org.w0lf.whosTyping;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -385,7 +385,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FBCE4EB6201C0F4D002F8A61 /* Build configuration list for PBXProject "typeStatus13" */ = {
+		FBCE4EB6201C0F4D002F8A61 /* Build configuration list for PBXProject "whosTyping" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FBCE4ECF201C0F4D002F8A61 /* Debug */,
@@ -394,7 +394,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FBCE4ED1201C0F4D002F8A61 /* Build configuration list for PBXNativeTarget "typeStatus13" */ = {
+		FBCE4ED1201C0F4D002F8A61 /* Build configuration list for PBXNativeTarget "whosTyping" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FBCE4ED2201C0F4D002F8A61 /* Debug */,

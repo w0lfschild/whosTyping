@@ -1,6 +1,6 @@
 //
-//  typeStatus.m
-//  typeStatus
+//  whosTyping.m
+//  whosTyping
 //
 //  Created by Wolfgang Baird on 1/21/18.
 //  Copyright © 2018 Wolfgang Baird. All rights reserved.
@@ -212,30 +212,42 @@ ZKSwizzleInterface(WBTS_IMTypingChatItem, IMTypingChatItem, NSObject)
 
 @end
 
-ZKSwizzleInterface(WBTS_FZMessage, FZMessage, NSObject)
-@implementation WBTS_FZMessage
+@interface IMDMessageStore : NSObject
++ (id)sharedInstance;
+- (id)messageWithGUID:(id)arg1;
+@end
 
-- (void)setTimeRead:(NSDate *)timeRead {
-    ZKOrig(void, timeRead);
+ZKSwizzleInterface(WBTS_IMDServiceSession, IMDServiceSession, NSObject)
+@implementation WBTS_IMDServiceSession
+
++ (id)sharedInstance {
+    return ZKOrig(id);
+}
+
+- (id)messageWithGUID:(id)arg1 {
+    return ZKOrig(id, arg1);
+}
+
+- (void)didReceiveMessageReadReceiptForMessageID:(NSString *)messageID date:(NSDate *)date completionBlock:(id)completion {
+    ZKOrig(void, messageID, date, completion);
+    Class IMDMS = NSClassFromString(@"IMDMessageStore");
+    [plugin WBTS_SetStatus:WBTS_StatusBarTypeRead :[[[IMDMS sharedInstance] messageWithGUID:messageID] valueForKey:@"handle"]];
+//    HBTSPostMessage(HBTSMessageTypeReadReceipt, [[%c(IMDMessageStore) sharedInstance] messageWithGUID:messageID].handle, NO);
     
-//    if (!self.sender && [[NSDate date] timeIntervalSinceDate:self.timeRead] < 1) {
-//        HBTSSetStatus(HBTSStatusBarTypeRead, self.handle);
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)([userDefaults doubleForKey:kWBTS_PreferencesDurationKey] * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [plugin WBTS_SetStatus:WBTS_StatusBarTypeEmpty :nil];
+    });
+}
+
+@end
+
+//ZKSwizzleInterface(WBTS_IMMessage, IMMessage, NSObject)
+//@implementation WBTS_IMMessage
 //
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)([userDefaults doubleForKey:kHBTSPreferencesDurationKey] * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//            HBTSSetStatus(HBTSStatusBarTypeEmpty, nil);
-//        });
-//    }
-}
-
-@end
-
-ZKSwizzleInterface(WBTS_IMMessage, IMMessage, NSObject)
-@implementation WBTS_IMMessage
-
-- (void)_updateTimeRead:(id)arg1 {
-    ZKOrig(void, arg1);
-    DLog(@"typeStatus : _updateTimeRead");
-}
-
-@end
+//- (void)_updateTimeRead:(id)arg1 {
+//    ZKOrig(void, arg1);
+//    DLog(@"typeStatus : _updateTimeRead");
+//}
+//
+//@end
 
