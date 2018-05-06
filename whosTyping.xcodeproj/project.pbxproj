@@ -218,7 +218,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "codesign --deep -s \"-\" /Library/Application\\ Support/SIMBL/Plugins/typeStatus13.bundle\nkillall Messages\nsleep 1\nopen -b com.apple.ichat";
+			shellScript = "codesign --deep -s \"-\" /Library/Application\\ Support/SIMBL/Plugins/whosTyping.bundle\nkillall Messages\nsleep 1\nopen -b com.apple.ichat";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -347,7 +347,7 @@
 					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = typeStatus13/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/whosTyping/Info.plist";
 				INSTALL_PATH = "/Library/Application Support/SIMBL/Plugins";
 				MACH_O_TYPE = mh_dylib;
@@ -372,7 +372,7 @@
 					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = typeStatus13/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/whosTyping/Info.plist";
 				INSTALL_PATH = "/Library/Application Support/SIMBL/Plugins";
 				MACH_O_TYPE = mh_dylib;

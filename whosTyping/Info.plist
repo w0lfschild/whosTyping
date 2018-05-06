@@ -29,10 +29,6 @@
 		<dict>
 			<key>BundleIdentifier</key>
 			<string>com.apple.iChat</string>
-			<key>MaxBundleVersion</key>
-			<string>999999999</string>
-			<key>MinBundleVersion</key>
-			<string>0</string>
 		</dict>
 	</array>
 </dict>

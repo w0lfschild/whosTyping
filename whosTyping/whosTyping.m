@@ -36,15 +36,15 @@ NSTimer *_timer;
 NSArray *gif;
 NSUInteger gifFrame = 0;
 
-typedef NS_ENUM(NSUInteger, WBTS_StatusBarType) {
-    WBTS_StatusBarTypeTyping,
-    WBTS_StatusBarTypeRead,
-    WBTS_StatusBarTypeEmpty
+typedef NS_ENUM(NSUInteger, WBWT_StatusBarType) {
+    WBWT_StatusBarTypeTyping,
+    WBWT_StatusBarTypeRead,
+    WBWT_StatusBarTypeEmpty
 };
 
-static NSString *const kWBTS_PreferencesSuiteName = @"org.w0lf.typeStatus13";
-static NSString *const kWBTS_PreferencesAnimatedKey = @"Animated";
-static NSString *const kWBTS_PreferencesDurationKey = @"OverlayDuration";
+static NSString *const kWBWT_PreferencesSuiteName = @"org.w0lf.typeStatus13";
+static NSString *const kWBWT_PreferencesAnimatedKey = @"Animated";
+static NSString *const kWBWT_PreferencesDurationKey = @"OverlayDuration";
 
 @implementation typeStatus
 
@@ -62,16 +62,16 @@ static NSString *const kWBTS_PreferencesDurationKey = @"OverlayDuration";
     plugin = [typeStatus sharedInstance];
     NSUInteger osx_ver = [[NSProcessInfo processInfo] operatingSystemVersion].minorVersion;
     NSLog(@"typeStatus : %@ loaded into %@ on macOS 10.%ld", [self class], [[NSBundle mainBundle] bundleIdentifier], (long)osx_ver);
-    bundle = [NSBundle bundleWithIdentifier:kWBTS_PreferencesSuiteName];
+    bundle = [NSBundle bundleWithIdentifier:kWBWT_PreferencesSuiteName];
     statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-    userDefaults = [[NSUserDefaults alloc] initWithSuiteName:kWBTS_PreferencesSuiteName];
+    userDefaults = [[NSUserDefaults alloc] initWithSuiteName:kWBWT_PreferencesSuiteName];
     [userDefaults registerDefaults:@{
-                                     kWBTS_PreferencesDurationKey: @5.0,
-                                     kWBTS_PreferencesAnimatedKey: @NO
+                                     kWBWT_PreferencesDurationKey: @5.0,
+                                     kWBWT_PreferencesAnimatedKey: @NO
                                      }];
 }
 
-- (NSString *)WBTS_NameForHandle:(NSString *)address {
+- (NSString *)WBWT_NameForHandle:(NSString *)address {
     IMAccount *account = [[IMAccount alloc] initWithService:[IMService iMessageService]];
     IMHandle *handle = [account imHandleWithID:address];
     return handle._displayNameWithAbbreviation ?: address;
@@ -132,7 +132,7 @@ static NSString *const kWBTS_PreferencesDurationKey = @"OverlayDuration";
     statusItem.image = gif[gifFrame];
 }
 
-- (void)WBTS_SetStatus:(WBTS_StatusBarType)type :(NSString *)handle {
+- (void)WBWT_SetStatus:(WBWT_StatusBarType)type :(NSString *)handle {
     static NSImage *TypingIcon;
     static NSImage *ReadIcon;
     static dispatch_once_t onceToken;
@@ -146,7 +146,7 @@ static NSString *const kWBTS_PreferencesDurationKey = @"OverlayDuration";
         ReadIcon.size = CGSizeMake(22.f, 22.f);
     });
     
-    if (type == WBTS_StatusBarTypeEmpty) {
+    if (type == WBWT_StatusBarTypeEmpty) {
         statusItem.length = 0;
         [self stopSIanimation];
         statusItem.title = nil;
@@ -154,24 +154,24 @@ static NSString *const kWBTS_PreferencesDurationKey = @"OverlayDuration";
         return;
     }
     
-    if (type == WBTS_StatusBarTypeRead)
+    if (type == WBWT_StatusBarTypeRead)
         statusItem.image = ReadIcon;
     
-    if (type == WBTS_StatusBarTypeTyping) {
-        if ([userDefaults boolForKey:kWBTS_PreferencesAnimatedKey])
+    if (type == WBWT_StatusBarTypeTyping) {
+        if ([userDefaults boolForKey:kWBWT_PreferencesAnimatedKey])
             [self startSIanimation];
         else
             statusItem.image = TypingIcon;
     }
     
-    statusItem.title = [plugin WBTS_NameForHandle:handle];
+    statusItem.title = [plugin WBWT_NameForHandle:handle];
     statusItem.length = -1;
 }
 
 @end
 
-ZKSwizzleInterface(WBTS_SOTypingIndicatorView, SOTypingIndicatorView, NSView)
-@implementation WBTS_SOTypingIndicatorView
+ZKSwizzleInterface(WBWT_SOTypingIndicatorView, SOTypingIndicatorView, NSView)
+@implementation WBWT_SOTypingIndicatorView
 
 - (void)destroyTypingLayer {
     DLog(@"typeStatus : destroyTypingLayer");
@@ -180,7 +180,7 @@ ZKSwizzleInterface(WBTS_SOTypingIndicatorView, SOTypingIndicatorView, NSView)
         typingIndicators--;
     
     if (typingIndicators == 0)
-        [plugin WBTS_SetStatus:WBTS_StatusBarTypeEmpty :nil];
+        [plugin WBWT_SetStatus:WBWT_StatusBarTypeEmpty :nil];
     
     ZKOrig(void);
 }
@@ -201,12 +201,12 @@ ZKSwizzleInterface(WBTS_SOTypingIndicatorView, SOTypingIndicatorView, NSView)
 
 @end
 
-ZKSwizzleInterface(WBTS_IMTypingChatItem, IMTypingChatItem, NSObject)
-@implementation WBTS_IMTypingChatItem
+ZKSwizzleInterface(WBWT_IMTypingChatItem, IMTypingChatItem, NSObject)
+@implementation WBWT_IMTypingChatItem
 
 - (id)_initWithItem:(id)arg1 {
     NSString *address = [arg1 valueForKey:@"_handle"];
-    [plugin WBTS_SetStatus:WBTS_StatusBarTypeTyping :address];
+    [plugin WBWT_SetStatus:WBWT_StatusBarTypeTyping :address];
     return ZKOrig(id, arg1);
 }
 
@@ -217,8 +217,8 @@ ZKSwizzleInterface(WBTS_IMTypingChatItem, IMTypingChatItem, NSObject)
 - (id)messageWithGUID:(id)arg1;
 @end
 
-ZKSwizzleInterface(WBTS_IMDServiceSession, IMDServiceSession, NSObject)
-@implementation WBTS_IMDServiceSession
+ZKSwizzleInterface(WBWT_IMDServiceSession, IMDServiceSession, NSObject)
+@implementation WBWT_IMDServiceSession
 
 + (id)sharedInstance {
     return ZKOrig(id);
@@ -231,18 +231,18 @@ ZKSwizzleInterface(WBTS_IMDServiceSession, IMDServiceSession, NSObject)
 - (void)didReceiveMessageReadReceiptForMessageID:(NSString *)messageID date:(NSDate *)date completionBlock:(id)completion {
     ZKOrig(void, messageID, date, completion);
     Class IMDMS = NSClassFromString(@"IMDMessageStore");
-    [plugin WBTS_SetStatus:WBTS_StatusBarTypeRead :[[[IMDMS sharedInstance] messageWithGUID:messageID] valueForKey:@"handle"]];
+    [plugin WBWT_SetStatus:WBWT_StatusBarTypeRead :[[[IMDMS sharedInstance] messageWithGUID:messageID] valueForKey:@"handle"]];
 //    HBTSPostMessage(HBTSMessageTypeReadReceipt, [[%c(IMDMessageStore) sharedInstance] messageWithGUID:messageID].handle, NO);
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)([userDefaults doubleForKey:kWBTS_PreferencesDurationKey] * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [plugin WBTS_SetStatus:WBTS_StatusBarTypeEmpty :nil];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)([userDefaults doubleForKey:kWBWT_PreferencesDurationKey] * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [plugin WBWT_SetStatus:WBWT_StatusBarTypeEmpty :nil];
     });
 }
 
 @end
 
-//ZKSwizzleInterface(WBTS_IMMessage, IMMessage, NSObject)
-//@implementation WBTS_IMMessage
+//ZKSwizzleInterface(WBWT_IMMessage, IMMessage, NSObject)
+//@implementation WBWT_IMMessage
 //
 //- (void)_updateTimeRead:(id)arg1 {
 //    ZKOrig(void, arg1);
