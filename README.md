@@ -5,7 +5,7 @@
 # Information:
 
 - Designed for 10.10+
-- whosTyping is a mySIMBL plugin that adds iMessage typing and read receipt indicators to the status bar
+- whosTyping is a MacForge plugin that adds iMessage typing and read receipt indicators to the status bar
 - Author: [w0lfschild](https://github.com/w0lfschild)
 
 # Note:
@@ -14,10 +14,8 @@
 
 # Installation:
 
-1. Download [mySIMBL](https://github.com/w0lfschild/app_updates/raw/master/mySIMBL/mySIMBL_master.zip)
-2. Download [whosTyping](https://github.com/w0lfschild/whosTyping/raw/master/build/whosTyping.bundle.zip)
-3. Unzip downloads
-4. Open `whosTyping.bundle` with `mySIMBL.app`
+1. Download [MacForge](https://github.com/w0lfschild/app_updates/raw/master/MacForge/MacForge.zip)
+2. Install [whosTyping](https://www.macenhance.com/mflink?macforge://github.com/w0lfschild/myRepo/raw/master/myPaidRepo/org.w0lf.whosTyping)
 5. Quit and re-open `Messages.app`
 	
 ### License:
