@@ -16,7 +16,6 @@
 
 1. Download [MacForge](https://github.com/w0lfschild/app_updates/raw/master/MacForge/MacForge.zip)
 2. Install [whosTyping](https://www.macenhance.com/mflink?macforge://github.com/w0lfschild/myRepo/raw/master/myPaidRepo/org.w0lf.whosTyping)
-5. Quit and re-open `Messages.app`
 	
 ### License:
 Licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html).
